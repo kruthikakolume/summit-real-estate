@@ -2,6 +2,10 @@ import { Grid } from '@mui/material';
 import { useRouter } from 'next/router';
 import SummitCard from './components/PillarCard';
 import styles from './Pillar.module.scss';
+import { listFoundations } from 'src/graphql/queries';
+import { generateClient } from 'aws-amplify/api';
+
+const client = generateClient();
 
 interface iSummitCards {
   title: string;
@@ -9,6 +13,17 @@ interface iSummitCards {
   description: string;
   image: string;
   path?: string;
+}
+
+export async function list() {
+  try {
+    const result = await client.graphql({
+      query: listFoundations,
+    });
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const summitCardsContent: iSummitCards[] = [
@@ -43,12 +58,14 @@ const summitCardsContent: iSummitCards[] = [
   },
 ];
 
-const Summits = () => {
+const Summits = (list: any) => {
   const router = useRouter();
 
   const handleNavigate = () => {
     router.push('/sponsor');
   };
+
+  console.log(list);
 
   return (
     <section className={styles.summits}>

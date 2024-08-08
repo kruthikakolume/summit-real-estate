@@ -51,8 +51,9 @@ const Navbar: React.FC<NavbarProps> = ({
     //   onClick: () => handleButtonClick(),
     // },
     {
-      text: 'Get Started',
-      path: '/?cta=true',
+      text: 'Admin',
+      onClick: () => router.push('/admin'),
+      path: '/admin',
     },
   ];
 

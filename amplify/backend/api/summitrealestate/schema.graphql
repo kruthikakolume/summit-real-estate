@@ -1,0 +1,13 @@
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+type Foundation @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  title: String!
+  subheading: String!
+  desc: String!
+  image: S3Object
+}

@@ -1,0 +1,16 @@
+{
+  "resourceName": "s33819b951",
+  "policyUUID": "3819b951",
+  "bucketName": "summitrealestate52a36a136dc94bc7bc051168f4bb05f",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
