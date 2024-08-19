@@ -15,7 +15,7 @@ import { handleMoveToId } from 'utils';
 import { useRouter } from 'next/router';
 
 const options = [
-  { title: 'Admin', link: '/admin' },
+  { title: 'Get Started' },
   { title: 'Sponsors', link: '/sponsor' },
   { title: 'About us', link: '/?about-us=true' },
   { title: 'Careers', link: '/career' },
@@ -24,7 +24,7 @@ const options = [
 const Sidebar: React.FC<any> = ({ setOpen, open }) => {
   const router = useRouter();
   const handleButtonClick = () => {
-    router.pathname !== '/' && router.push('/admin');
+    router.pathname !== '/' && router.push('/?cta=true');
     router.pathname === '/' && handleMoveToId();
   };
 

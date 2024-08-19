@@ -2,4 +2,3 @@
 .next
 dist
 node_modules/
-amplify-codegen-temp/models/models

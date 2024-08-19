@@ -56,6 +56,7 @@ const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
         color="secondary" // just force to white color
         InputProps={{
           required: true,
+          disableUnderline: true,
         }}
         {...props}
       />

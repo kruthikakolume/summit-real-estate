@@ -4,13 +4,8 @@ import Head from 'next/head';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from 'styles/createEmotionCache';
 import 'styles/fonts.scss';
-import { Amplify } from 'aws-amplify';
-import config from '../src/aws-exports';
-import '@aws-amplify/ui-react/styles.css';
 
 const clientSideEmotionCache = createEmotionCache();
-const newConfig = { ...config, ssr: true };
-Amplify.configure(newConfig);
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;

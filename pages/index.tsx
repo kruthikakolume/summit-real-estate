@@ -2,29 +2,14 @@ import type { NextPage } from 'next';
 import MainLayout from 'components/Layouts/MainLayout';
 import Banner from 'components/Banner';
 import Summits from 'components/Pillars';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CTA from 'components/CTA';
 import { useRouter } from 'next/router';
 import { handleMoveToId } from 'utils';
 import About from 'components/About';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import { generateClient } from 'aws-amplify/api';
-import { listFoundations } from 'src/graphql/queries';
-
-const client = generateClient();
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    async function fetchData() {
-      const apiData = await client.graphql({ query: listFoundations, authMode: 'apiKey' });
-      console.log(apiData);
-      setData(apiData.data.listFoundations.items);
-    }
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -47,11 +32,11 @@ const Home: NextPage = () => {
         home: true,
       }}>
       <Banner imgSrc="/hero.jpg" />
-      <Summits list={data} />
+      <Summits />
       <About />
       <CTA />
     </MainLayout>
   );
 };
 
-export default withAuthenticator(Home);
+export default Home;
